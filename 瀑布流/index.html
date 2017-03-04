@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		div{
+			margin: 0 auto;
+			width: 1200px;
+		
+		}
+		ul{
+			float: left;
+			width: 250px;
+			margin: 0 20px;
+		}
+		ul li{
+			border-radius: 4%;
+			box-shadow: 0 1px 9px gray;
+			padding: 8px;
+			width: 250px;
+			margin:10px 0;
+		}
+		ul li img{
+			width: 250px;
+			display: block;
+		}
+	</style>
+	<script src="utils.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var aU=document.getElementsByTagName('ul')
+			for(var i=0;i<40;i++){
+				var oL=document.createElement('li')
+				var arr=utils.toArry(aU)	
+				oL.innerHTML='<img src="img/'+utils.rnd(0,9)+'.jpg">'
+				arr.sort(function(a,b){
+					return a.offsetHeight-b.offsetHeight
+				})
+				arr[0].appendChild(oL)
+			}
+			window.onscroll=function(){
+				var oL=document.createElement('li')
+					var arr=utils.toArry(aU)	
+					oL.innerHTML='<img src="img/'+utils.rnd(0,9)+'.jpg">'
+					//oL.style.visibility='hidden'
+					arr.sort(function(a,b){
+						return a.offsetHeight-b.offsetHeight
+					})
+				if(utils.win('scrollTop')+utils.win('clientHeight')-50>=arr[0].offsetHeight){
+					arr[0].appendChild(oL)
+				}
+				/*if(utils.win('scrollTop')+utils.win('clientHeight')>=arr[0].offsetHeight){
+					oL.style.visibility='visible'
+				}*/
+				//~~~~~~~~~~~~~~~~
+				/*function creatEle(par){
+					var oL=document.createElement('li')
+					var arr=utils.toArry(par)	
+					oL.innerHTML='<img src="../images/'+utils.rnd(0,9)+'.jpg">'
+					//oL.style.visibility='hidden'
+					arr.sort(function(a,b){
+						return a.offsetHeight-b.offsetHeight
+					})
+					return oL
+				}*/
+			}
+			
+		}
+		
+	</script>
+</head>
+<body>
+	<div>
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+	</div>
+</body>
+</html>
